@@ -1,0 +1,38 @@
+﻿@model Rendezveny
+
+<div class="text-center">
+    <h2>Új rendezvény</h2>
+</div>
+
+<form asp-action="UjRendezveny" asp-controller="Home" method="post" class="row g-3">
+    @Html.AntiForgeryToken()
+    <input hidden asp-for="Id"/>
+
+    <div class="col-md-7">
+        <label asp-for="Elnevezes" class="form-label">Név</label>
+        <input asp-for="Elnevezes" class="form-control" />
+        <span asp-validation-for="Elnevezes" class="text-danger"></span>
+    </div>
+
+    <div class="col-7">
+        <label asp-for="ResztvevokSzama" class="form-label"></label>
+        <input min="1" asp-for="ResztvevokSzama" class="form-control" rows="4"></input>
+        <span asp-validation-for="ResztvevokSzama" class="text-danger"></span>
+    </div>
+
+    <div class="col-lg-3 col-md-7 col-sm-12">
+        <label asp-for="Idopont" class="form-label">Dátum és idő</label>
+        <input asp-for="Idopont" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Idopont" class="text-danger"></span>
+    </div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Mentés</button>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Mégse</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

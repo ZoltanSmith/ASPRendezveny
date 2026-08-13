@@ -13,7 +13,7 @@ public partial class RendezvenyContext : DbContext
     {
     }
 
-    public virtual DbSet<Rendezveny> Rendezvenies { get; set; }
+    public virtual DbSet<Rendezveny> Rendezvenyek { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
